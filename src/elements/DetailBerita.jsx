@@ -1,4 +1,4 @@
-import { Calendar, Eye, Share2, Facebook, Twitter, Linkedin, Link2, ChevronRight, Tag } from "lucide-react";
+import { Calendar, Eye, Facebook, Twitter, Linkedin, Link2, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router";
@@ -81,194 +81,145 @@ const DetailBerita = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Breadcrumb */}
-      <div className="bg-muted/30 border-b border-border">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <a href="/" className="hover:text-primary">Beranda</a>
-            <ChevronRight className="h-4 w-4" />
-            <a href="/semua-berita" className="hover:text-primary">Berita</a>
-            <ChevronRight className="h-4 w-4" />
-            <span className="text-foreground">Detail Berita</span>
-          </div>
+  <div className="min-h-screen bg-background">
+
+    {/* Breadcrumb */}
+    <div className="relative bg-linear-to-b from-primary/5 to-muted/30 border-b border-border overflow-hidden">
+      <div className="absolute -top-16 -left-16 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 py-6 relative z-10">
+        <div className="flex items-center gap-2 text-base text-muted-foreground">
+          <a href="/" className="hover:text-primary font-medium">Beranda</a>
+          <ChevronRight className="h-4 w-4" />
+          <a href="/semua-berita" className="hover:text-primary font-medium">Berita</a>
+          <ChevronRight className="h-4 w-4" />
+          <span className="text-foreground font-medium">Detail Berita</span>
         </div>
       </div>
-
-      <article className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            {/* Header */}
-            <header className="mb-8">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-                {article.title}
-              </h1>
-
-              {/* Meta Info */}
-              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>{article.date}</span>
-                </div>
-                <span>•</span>
-                <div className="flex items-center gap-2">
-                  <Eye className="h-4 w-4" />
-                  <span>{article.views} views</span>
-                </div>
-                <span>•</span>
-                <span>Oleh {article.author}</span>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {article.tags.map((tag, index) => (
-                  <span key={index} className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary font-medium">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Share Buttons */}
-              <div className="flex items-center gap-3 pb-6 border-b border-border">
-                <span className="text-sm font-medium text-foreground">Bagikan:</span>
-                <Button 
-                  size="sm" 
-                  variant="outline" 
-                  className="gap-2"
-                  onClick={() => handleShare('facebook')}
-                >
-                  <Facebook className="h-4 w-4" />
-                </Button>
-                <Button 
-                  size="sm" 
-                  variant="outline" 
-                  className="gap-2"
-                  onClick={() => handleShare('twitter')}
-                >
-                  <Twitter className="h-4 w-4" />
-                </Button>
-                <Button 
-                  size="sm" 
-                  variant="outline" 
-                  className="gap-2"
-                  onClick={() => handleShare('linkedin')}
-                >
-                  <Linkedin className="h-4 w-4" />
-                </Button>
-                <Button 
-                  size="sm" 
-                  variant="outline" 
-                  className="gap-2"
-                  onClick={() => handleShare('copy')}
-                >
-                  <Link2 className="h-4 w-4" />
-                </Button>
-              </div>
-            </header>
-
-            {/* Featured Image */}
-            <div className="mb-8 rounded-lg overflow-hidden">
-              <img 
-                src={article.image} 
-                alt={article.title}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-
-            {/* Article Content */}
-            <div 
-              className="prose prose-lg max-w-none mb-12"
-              dangerouslySetInnerHTML={{ __html: article.content }}
-            />
-
-            {/* Divider */}
-            <div className="border-t border-border my-12" />
-
-            {/* Related News */}
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-6">Berita Terkait</h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                {relatedNews.map((news, index) => (
-                  <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-                    <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={news.image} 
-                        alt={news.title}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <p className="text-xs text-muted-foreground mb-2">{news.date}</p>
-                      <h3 className="font-semibold text-foreground hover:text-primary transition-colors line-clamp-2">
-                        {news.title}
-                      </h3>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </section>
-
-            {/* Back to News */}
-            <div className="mt-12 text-center">
-              <Link to="/semua-berita">
-                <Button variant="outline" className="gap-2">
-                  <ChevronRight className="h-4 w-4 rotate-180" />
-                  Kembali ke Semua Berita
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <style>{`
-        .prose {
-          color: hsl(var(--foreground));
-        }
-        .prose p {
-          margin-bottom: 1.25rem;
-          line-height: 1.75;
-        }
-        .prose .lead {
-          font-size: 1.25rem;
-          font-weight: 500;
-          color: hsl(var(--muted-foreground));
-          margin-bottom: 2rem;
-          line-height: 1.6;
-        }
-        .prose h2 {
-          font-size: 1.875rem;
-          font-weight: 700;
-          color: hsl(var(--foreground));
-          margin-top: 2.5rem;
-          margin-bottom: 1.25rem;
-          padding-bottom: 0.5rem;
-          border-bottom: 3px solid hsl(var(--primary));
-          display: inline-block;
-        }
-        .prose h3 {
-          font-size: 1.5rem;
-          font-weight: 600;
-          color: hsl(var(--foreground));
-          margin-top: 2rem;
-          margin-bottom: 1rem;
-        }
-        .prose ul {
-          list-style-type: disc;
-          margin-left: 2rem;
-          margin-bottom: 1.5rem;
-        }
-        .prose li {
-          margin-bottom: 0.75rem;
-          line-height: 1.75;
-        }
-        .prose strong {
-          font-weight: 600;
-          color: hsl(var(--foreground));
-        }
-      `}</style>
     </div>
-  );
+
+    <article className="pt-20 pb-24">
+      <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto">
+
+          {/* Header */}
+          <header className="mb-12">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-tight">
+              {article.title}
+            </h1>
+
+            {/* Meta Info */}
+            <div className="flex flex-wrap items-center gap-6 text-base text-muted-foreground mb-8">
+              <div className="flex items-center gap-2">
+                <Calendar className="h-5 w-5" />
+                <span>{article.date}</span>
+              </div>
+              <span>•</span>
+              <div className="flex items-center gap-2">
+                <Eye className="h-5 w-5" />
+                <span>{article.views} views</span>
+              </div>
+              <span>•</span>
+              <span>Oleh {article.author}</span>
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              {article.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="text-sm px-4 py-1.5 rounded-full bg-primary/10 text-primary font-medium"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Share */}
+            <div className="flex flex-wrap items-center gap-4 pb-8 border-b border-border">
+              <span className="text-base font-medium text-foreground">Bagikan:</span>
+              {[Facebook, Twitter, Linkedin, Link2].map((Icon, i) => (
+                <Button
+                  key={i}
+                  size="icon"
+                  variant="outline"
+                  className="h-10 w-10"
+                  onClick={() =>
+                    handleShare(['facebook', 'twitter', 'linkedin', 'copy'][i])
+                  }
+                >
+                  <Icon className="h-5 w-5" />
+                </Button>
+              ))}
+            </div>
+          </header>
+
+          {/* Featured Image */}
+          <div className="mb-14 rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          {/* Article Content */}
+          <div
+            className="prose prose-xl max-w-none mb-16"
+            dangerouslySetInnerHTML={{ __html: article.content }}
+          />
+
+          {/* Divider */}
+          <div className="border-t border-border my-16" />
+
+          {/* Related News */}
+          <section>
+            <h2 className="text-3xl font-bold text-foreground mb-10">
+              Berita Terkait
+            </h2>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {relatedNews.map((news, index) => (
+                <Card
+                  key={index}
+                  className="overflow-hidden rounded-2xl hover:shadow-xl transition-shadow cursor-pointer"
+                >
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={news.image}
+                      alt={news.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {news.date}
+                    </p>
+                    <h3 className="text-lg font-semibold text-foreground hover:text-primary transition-colors line-clamp-2">
+                      {news.title}
+                    </h3>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Back */}
+          <div className="mt-16 text-center">
+            <Link to="/semua-berita">
+              <Button variant="outline" size="lg" className="gap-3 px-8">
+                <ChevronRight className="h-5 w-5 rotate-180" />
+                Kembali ke Semua Berita
+              </Button>
+            </Link>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </div>
+);
+
 };
 
 export default DetailBerita;

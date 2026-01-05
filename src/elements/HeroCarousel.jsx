@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Info, Search, TrainTrack } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import hero1 from "/images/hero-1.jpg";
 import hero2 from "/images/hero-2.jpg";
@@ -13,12 +13,14 @@ const slides = [
     subtitle:
       "Mewujudkan keterbukaan informasi untuk pelayanan publik yang lebih baik",
     cta: "Ajukan Permohonan",
+    icon: <Search/>
   },
   {
     image: hero2,
     title: "Layanan Informasi Terpercaya",
     subtitle: "Akses informasi publik dengan mudah, cepat, dan transparan",
     cta: "Pelajari Lebih Lanjut",
+    icon: <Info/>
   },
   {
     image: hero3,
@@ -26,6 +28,7 @@ const slides = [
     subtitle:
       "Sistem informasi terintegrasi untuk mendukung reformasi birokrasi",
     cta: "Lacak Permohonan",
+    icon: <TrainTrack/>
   },
 ];
 
@@ -98,7 +101,7 @@ const HeroCarousel = () => {
                 <Link to={"/sippid"}>
                   <Button
                     size="lg"
-                    className={`bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 transition-all duration-700 ${
+                    className={`bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 transition-all duration-700 cursor-pointer ${
                       index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-8"
@@ -106,6 +109,7 @@ const HeroCarousel = () => {
                     style={{ transitionDelay: "600ms" }}
                   >
                     {slide.cta}
+                    {slide.icon}
                   </Button>
                 </Link>
               </div>
@@ -136,7 +140,7 @@ const HeroCarousel = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 cursor-pointer ${
               index === currentSlide
                 ? "bg-primary w-8 md:w-10"
                 : "bg-primary-foreground/50 hover:bg-primary-foreground/70"

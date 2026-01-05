@@ -50,38 +50,45 @@ const faqItems = [
 
 const FAQSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
+    <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-muted/30">
       <div className="section-container">
+
         {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block px-3 py-1 text-sm font-medium text-primary bg-primary/10 rounded-full mb-4">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 text-base font-medium text-primary bg-primary/10 rounded-full mb-5">
             FAQ
           </span>
-          <h2 className="section-title">Pertanyaan yang Sering Diajukan</h2>
-          <p className="section-subtitle mt-2 max-w-2xl mx-auto">
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+            Pertanyaan yang Sering Diajukan
+          </h2>
+
+          <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
             Temukan jawaban atas pertanyaan umum seputar layanan PPID
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-4xl lg:max-w-5xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-6">
             {faqItems.map((item, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-lg px-6 data-[state=open]:border-primary/50 transition-colors"
+                className="bg-card border border-border rounded-xl px-8 data-[state=open]:border-primary/50 transition-colors"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-5 hover:no-underline">
+                <AccordionTrigger className="text-left font-semibold text-lg md:text-xl text-foreground hover:text-primary py-6 hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+
+                <AccordionContent className="text-muted-foreground text-base md:text-lg pb-6 leading-relaxed">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
+
       </div>
     </section>
   );

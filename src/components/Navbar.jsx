@@ -6,6 +6,8 @@ import gsap from 'gsap';
 import ppidLogo from '/logos/Logo PanRB.png';
 
 const navItems = [
+  
+  { label: 'Beranda', href: '/' },
   { label: 'SOP', href: '/sop' },
   { label: 'Regulasi', href: '/regulasi' },
   {
@@ -97,10 +99,10 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm navbar-btn"
     >
       <div className="section-container">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src={ppidLogo} alt="PPID Logo" className="h-10 md:h-12 w-auto" />
+          <Link to="/" className="flex items-center gap-5">
+            <img src={ppidLogo} alt="PPID Logo" className="h-10 md:h-14" />
           </Link>
 
           {/* Desktop Menu */}
@@ -109,7 +111,7 @@ const Navbar = () => {
               <div key={item.label} className="relative group">
                 {item.dropdown ? (
                   <button
-                    className="nav-hover-btn flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md"
+                    className="nav-hover-btn flex items-center text-lg gap-1 px-3 py-2 font-medium transition-colors rounded-md"
                     onMouseEnter={() => setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
@@ -119,7 +121,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to={item.href || '#'}
-                    className="nav-hover-btn px-3 py-2 text-sm font-medium transition-colors rounded-md"
+                    className="nav-hover-btn px-3 py-2 text-lg font-medium transition-colors rounded-md"
                   >
                     {item.label}
                   </Link>
@@ -140,7 +142,7 @@ const Navbar = () => {
                       <Link
                         key={subItem.label}
                         to={subItem.href}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors"
+                        className="block px-4 py-2 text-lg text-foreground hover:bg-muted hover:text-primary transition-colors"
                       >
                         {subItem.label}
                       </Link>
