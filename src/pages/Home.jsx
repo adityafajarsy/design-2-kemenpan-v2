@@ -10,7 +10,7 @@ import ServicesSection from "@/elements/ServicesSection";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <main className="md:-pt-20">
+      <main className="md:-pt-20 -pt">
         <HeroCarousel />
         <AboutPPID />
         <Partners />

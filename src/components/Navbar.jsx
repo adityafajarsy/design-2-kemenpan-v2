@@ -96,7 +96,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navContainerRef}
-      className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm navbar-btn"
+      className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm navbar-btn border-b-2 border-primary"
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-16 md:h-24">
@@ -166,7 +166,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? 'max-h-[80vh] pb-4' : 'max-h-0'
+            isMobileMenuOpen ? 'max-h-[90vh] pb-4' : 'max-h-0'
           }`}
         >
           <div className="space-y-1">

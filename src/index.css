@@ -200,7 +200,7 @@ body {
     @apply relative text-foreground hover:bg-gray-100 after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65,0.05,0.36,1)] hover:after:origin-bottom-left hover:after:scale-x-100 hover:text-primary cursor-pointer after:content-[''];
   }
 
-  /* Floating state - red navbar with white text */
+  /* Floating state - aqua navbar with white text */
   .floating-nav {
     @apply bg-white backdrop-blur-md shadow-lg;
   }

@@ -39,7 +39,7 @@ const PermohonanPage = () => {
 
       {/* Tabs Navigation */}
       <div className="bg-white border-b shadow-sm sticky top-0 z-10">
-        <div className="container mx-auto px-4">
+        <div className="container flex items-center justify-center mx-auto px-4">
           <div className="flex overflow-x-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon;

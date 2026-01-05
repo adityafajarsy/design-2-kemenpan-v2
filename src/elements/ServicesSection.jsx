@@ -8,7 +8,7 @@ const services = [
     title: 'Form Permohonan Informasi',
     description:
       'Ajukan permohonan informasi publik secara online melalui formulir yang telah disediakan.',
-    href: '#',
+    href: '/sippid',
     buttonText: 'Ajukan Permohonan',
   },
   {
@@ -16,7 +16,7 @@ const services = [
     title: 'Form Keberatan',
     description:
       'Sampaikan keberatan atas tanggapan permohonan informasi yang tidak sesuai harapan.',
-    href: '#',
+    href: '/sippid',
     buttonText: 'Ajukan Keberatan',
   },
   {
@@ -24,7 +24,7 @@ const services = [
     title: 'Lacak Permohonan',
     description:
       'Pantau status dan perkembangan permohonan informasi yang telah Anda ajukan.',
-    href: '#',
+    href: '/sippid',
     buttonText: 'Lacak Sekarang',
   },
 ];

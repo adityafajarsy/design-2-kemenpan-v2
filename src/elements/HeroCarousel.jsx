@@ -13,14 +13,14 @@ const slides = [
     subtitle:
       "Mewujudkan keterbukaan informasi untuk pelayanan publik yang lebih baik",
     cta: "Ajukan Permohonan",
-    icon: <Search/>
+    icon: <Search className="ml-2 h-5 w-5" />,
   },
   {
     image: hero2,
     title: "Layanan Informasi Terpercaya",
     subtitle: "Akses informasi publik dengan mudah, cepat, dan transparan",
     cta: "Pelajari Lebih Lanjut",
-    icon: <Info/>
+    icon: <Info className="ml-2 h-5 w-5" />,
   },
   {
     image: hero3,
@@ -28,7 +28,7 @@ const slides = [
     subtitle:
       "Sistem informasi terintegrasi untuk mendukung reformasi birokrasi",
     cta: "Lacak Permohonan",
-    icon: <TrainTrack/>
+    icon: <TrainTrack className="ml-2 h-5 w-5" />,
   },
 ];
 
@@ -57,7 +57,7 @@ const HeroCarousel = () => {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section className="relative h-[60vh] md:h-[80vh] overflow-hidden">
+    <section className="relative h-[60vh] md:h-[80vh] overflow-hidden -mt-16 md:mt-0">
       {/* Slides */}
       <div className="relative h-full">
         {slides.map((slide, index) => (
@@ -72,12 +72,19 @@ const HeroCarousel = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              <div className="absolute inset-0 bg-linear-to-r from-foreground/80 via-foreground/50 to-transparent" />
+              {/* Overlay */}
+              <div
+                className="
+                  absolute inset-0
+                  bg-linear-to-b from-foreground/80 via-foreground/60 to-transparent
+                  md:bg-linear-to-r md:from-foreground/80 md:via-foreground/50 md:to-transparent
+                "
+              />
             </div>
 
             {/* Content */}
-            <div className="relative h-full section-container flex items-center">
-              <div className="max-w-2xl text-primary-foreground">
+            <div className="relative h-full section-container flex items-center justify-center md:justify-start">
+              <div className="max-w-2xl text-primary-foreground text-center md:text-left px-4">
                 <h1
                   className={`text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 transition-all duration-700 ${
                     index === currentSlide
@@ -88,8 +95,9 @@ const HeroCarousel = () => {
                 >
                   {slide.title}
                 </h1>
+
                 <p
-                  className={`text-lg md:text-xl mb-6 md:mb-8 text-primary-foreground/90 transition-all duration-700 ${
+                  className={`text-base md:text-xl mb-6 md:mb-8 text-primary-foreground/90 transition-all duration-700 ${
                     index === currentSlide
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
@@ -98,10 +106,11 @@ const HeroCarousel = () => {
                 >
                   {slide.subtitle}
                 </p>
-                <Link to={"/sippid"}>
+
+                <Link to="/sippid">
                   <Button
                     size="lg"
-                    className={`bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 transition-all duration-700 cursor-pointer ${
+                    className={`w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 transition-all duration-700 ${
                       index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-8"
@@ -121,29 +130,30 @@ const HeroCarousel = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-background/20 backdrop-blur-sm text-primary-foreground hover:bg-background/40 transition-colors"
+        className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-background/20 backdrop-blur-sm text-primary-foreground hover:bg-background/40 transition-colors"
         aria-label="Previous slide"
       >
         <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
       </button>
+
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-background/20 backdrop-blur-sm text-primary-foreground hover:bg-background/40 transition-colors"
+        className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-background/20 backdrop-blur-sm text-primary-foreground hover:bg-background/40 transition-colors"
         aria-label="Next slide"
       >
         <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
       </button>
 
-      {/* Dots Navigation */}
+      {/* Dots */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`h-2.5 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? "bg-primary w-8 md:w-10"
-                : "bg-primary-foreground/50 hover:bg-primary-foreground/70"
+                ? "bg-primary w-8"
+                : "bg-primary-foreground/50 hover:bg-primary-foreground/70 w-2.5"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
