@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { HelpCircle } from 'lucide-react';
 
 const faqItems = [
   {
@@ -34,17 +35,17 @@ const faqItems = [
   {
     question: 'Jenis informasi apa saja yang dapat diminta kepada PPID?',
     answer:
-      'Anda dapat meminta informasi yang termasuk dalam kategori: Informasi Berkala (laporan keuangan, program kerja), Informasi Serta Merta (informasi darurat), dan Informasi Setiap Saat (peraturan, kebijakan). Informasi yang dikecualikan tidak dapat diberikan sesuai UU yang berlaku.',
+      'Anda dapat meminta informasi yang termasuk dalam kategori: Informasi Berkala, Informasi Serta Merta, dan Informasi Setiap Saat. Informasi yang dikecualikan tidak dapat diberikan sesuai UU yang berlaku.',
   },
   {
     question: 'Bagaimana cara melacak status permohonan informasi?',
     answer:
-      'Anda dapat melacak status permohonan informasi melalui menu "Lacak Permohonan" di website ini. Masukkan nomor registrasi yang Anda terima saat mengajukan permohonan untuk melihat perkembangan dan status permohonan Anda.',
+      'Anda dapat melacak status permohonan informasi melalui menu "Lacak Permohonan" di website ini dengan memasukkan nomor registrasi.',
   },
   {
     question: 'Apakah saya bisa mengajukan permohonan secara anonim?',
     answer:
-      'Tidak, pemohon informasi publik wajib mencantumkan identitas diri yang jelas dan valid. Hal ini sesuai dengan ketentuan dalam UU No. 14 Tahun 2008 tentang Keterbukaan Informasi Publik yang mengatur tentang hak dan kewajiban pemohon informasi.',
+      'Tidak, pemohon informasi publik wajib mencantumkan identitas diri yang jelas dan valid sesuai UU No. 14 Tahun 2008.',
   },
 ];
 
@@ -68,27 +69,69 @@ const FAQSection = () => {
           </p>
         </div>
 
-        {/* FAQ Accordion */}
-        <div className="max-w-4xl lg:max-w-5xl mx-auto ">
-          <Accordion type="single" collapsible className="space-y-6">
-            {faqItems.map((item, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-card border border-border rounded-xl px-8 data-[state=open]:border-primary/50 transition-colors"
-              >
-                <AccordionTrigger className="text-left font-semibold text-lg md:text-xl text-foreground hover:text-primary py-6 hover:no-underline cursor-pointer">
-                  {item.question}
-                </AccordionTrigger>
+        {/* Content */}
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
 
-                <AccordionContent className="text-muted-foreground text-base md:text-lg pb-6 leading-relaxed">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          {/* Visual / Suasana */}
+          <div className="hidden lg:flex lg:col-span-4 justify-center sticky top-32">
+            <div className="relative">
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
+              
+              <div className="relative bg-card border border-border rounded-2xl p-10 shadow-sm text-center">
+                <HelpCircle className="h-20 w-20 text-primary mx-auto mb-6" />
+                <h3 className="text-xl font-semibold mb-2">
+                  Butuh Bantuan?
+                </h3>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  Kami rangkum pertanyaan yang paling sering ditanyakan
+                  agar Anda mendapatkan informasi dengan cepat dan jelas.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* FAQ Accordion */}
+          <div className="lg:col-span-8">
+            <Accordion type="single" collapsible className="space-y-6">
+              {faqItems.map((item, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="
+                    bg-card
+                    border border-border
+                    rounded-xl
+                    px-8
+                    data-[state=open]:border-primary/50
+                    transition-colors
+                  "
+                >
+                  <AccordionTrigger className="
+                    text-left
+                    font-semibold
+                    text-lg md:text-xl
+                    text-foreground
+                    hover:text-primary
+                    py-6
+                    hover:no-underline
+                  ">
+                    {item.question}
+                  </AccordionTrigger>
+
+                  <AccordionContent className="
+                    text-muted-foreground
+                    text-base md:text-lg
+                    pb-6
+                    leading-relaxed
+                  ">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
         </div>
-
       </div>
     </section>
   );

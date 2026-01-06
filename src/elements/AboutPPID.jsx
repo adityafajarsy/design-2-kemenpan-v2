@@ -19,19 +19,19 @@ const AboutPPID = () => {
           </div>
 
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div>
               <span className="inline-block px-4 py-1.5 text-base font-medium text-primary bg-primary/10 rounded-full mb-5">
                 Tentang Kami
               </span>
 
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+              <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold tracking-tight">
                 Apa itu PPID?
               </h2>
             </div>
             
-            <div className="space-y-6 text-muted-foreground">
-              <p className="text-lg md:text-xl leading-relaxed">
+            <div className="space-y-2 text-muted-foreground">
+              <p className="text-lg md:text-md leading-relaxed">
                 <strong className="text-foreground">
                   PPID (Pejabat Pengelola Informasi dan Dokumentasi)
                 </strong>{' '}
@@ -39,7 +39,7 @@ const AboutPPID = () => {
                 pendokumentasian, penyediaan, dan/atau pelayanan informasi di badan publik.
               </p>
 
-              <p className="text-lg md:text-xl leading-relaxed">
+              <p className="text-lg md:text-md leading-relaxed">
                 PPID Kementerian PANRB berkomitmen untuk mewujudkan keterbukaan informasi publik 
                 sebagai salah satu ciri penting negara demokratis yang menjunjung tinggi 
                 kedaulatan rakyat untuk mewujudkan penyelenggaraan negara yang baik.
