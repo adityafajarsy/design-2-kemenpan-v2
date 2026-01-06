@@ -7,21 +7,21 @@ const infoCards = [
     title: 'Informasi Berkala',
     description:
       'Informasi yang wajib disediakan dan diumumkan secara berkala meliputi informasi yang berkaitan dengan profil, kinerja, dan laporan keuangan.',
-    href: '#informasi-berkala',
+    href: '/informasi-publik/berkala',
   },
   {
     icon: <Clock className="h-10 w-10" />,
     title: 'Informasi Serta Merta',
     description:
       'Informasi yang wajib diumumkan secara serta merta mencakup informasi yang dapat mengancam hajat hidup orang banyak dan ketertiban umum.',
-    href: '#informasi-serta-merta',
+    href: '/informasi-publik/serta-merta',
   },
   {
     icon: <FileText className="h-10 w-10" />,
     title: 'Informasi Setiap Saat',
     description:
       'Informasi yang wajib tersedia setiap saat meliputi seluruh informasi yang berada di bawah penguasaan badan publik.',
-    href: '#informasi-setiap-saat',
+    href: '/informasi-publik/setiap-saat',
   },
 ];
 

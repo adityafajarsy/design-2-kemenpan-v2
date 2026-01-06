@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const services = [
   {
     icon: <FileEdit className="h-10 w-10" />,
-    title: 'Form Permohonan Informasi',
+    title: 'Form Permohonan ',
     description:
       'Ajukan permohonan informasi publik secara online melalui formulir yang telah disediakan.',
     href: '/sippid',
