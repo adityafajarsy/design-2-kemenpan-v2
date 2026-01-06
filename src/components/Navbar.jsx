@@ -101,7 +101,7 @@ const Navbar = () => {
       <div className="section-container">
         <div className="flex items-center justify-between h-16 md:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-5">
+          <Link to="/" className="flex items-center gap-3">
             <img src={ppidLogo} alt="PPID Logo" className="h-10 md:h-14" />
           </Link>
 
@@ -111,7 +111,7 @@ const Navbar = () => {
               <div key={item.label} className="relative group">
                 {item.dropdown ? (
                   <button
-                    className="nav-hover-btn flex items-center text-lg gap-1 px-3 py-2 font-medium transition-colors rounded-md"
+                    className="nav-hover-btn flex items-center lg:text-[16px] 2xl:text-xl gap-1 px-3 py-2 font-medium transition-colors rounded-md"
                     onMouseEnter={() => setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
@@ -121,7 +121,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to={item.href || '#'}
-                    className="nav-hover-btn px-3 py-2 text-lg font-medium transition-colors rounded-md"
+                    className="nav-hover-btn px-3 py-2 text-md 2xl:text-xl lg:text-[16px]font-medium transition-colors rounded-md"
                   >
                     {item.label}
                   </Link>
@@ -169,13 +169,13 @@ const Navbar = () => {
             isMobileMenuOpen ? 'max-h-[90vh] pb-4' : 'max-h-0'
           }`}
         >
-          <div className="space-y-1">
+          <div className="space-y-1 text-md">
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.dropdown ? (
                   <>
                     <button
-                      className="flex items-center justify-between w-full px-3 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
+                      className="flex items-center justify-between w-full px-3 py-2 text-md font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
                       onClick={() => handleDropdownToggle(item.label)}
                     >
                       {item.label}
@@ -207,7 +207,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to={item.href || '#'}
-                    className="block px-3 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
+                    className="block px-3 py-2 text-md font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
