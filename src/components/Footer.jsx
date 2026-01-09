@@ -157,7 +157,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="section-container py-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-base text-primary-foreground/60">
-            <p>© 2024 Kementerian PANRB. Hak Cipta Dilindungi.</p>
+            <p>© 2026 Kementerian PANRB. Hak Cipta Dilindungi.</p>
             <div className="flex gap-5">
               <Link to="#" className="hover:text-primary transition-colors">
                 Kebijakan Privasi
