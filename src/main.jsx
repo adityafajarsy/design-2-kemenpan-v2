@@ -31,6 +31,7 @@ import Regulasi from "./pages/Regulasi";
 import SemuaBerita from "./elements/SemuaBerita";
 import PermohonanPage from "./elements/PermohonanInformasi";
 import DetailBerita from "./elements/DetailBerita";
+import PBJ from "./pages/PBJ/PBJ";
 
 const router = createBrowserRouter([
   {
@@ -105,6 +106,12 @@ const router = createBrowserRouter([
           },
           { path: "survey-kepuasan", element: <SurveyKepuasan /> },
           { path: "tata-cara", element: <Tatacara /> },
+        ],
+      },
+      {
+        path: "/pbj",
+        children: [
+          { path: "dokumen-barang-dan-jasa", element: <PBJ /> }
         ],
       },
     ],

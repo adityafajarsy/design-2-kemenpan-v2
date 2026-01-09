@@ -45,11 +45,11 @@ const ServicesSection = () => {
             Layanan
           </span>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+          <h2 className="text-3xl md:text-3xl 2xl:text-5xl font-bold tracking-tight">
             Layanan PPID
           </h2>
 
-          <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+          <p className="mt-4 max-w-3xl mx-auto text-lg md:text-lg 2xl:text-xl text-muted-foreground">
             Berbagai layanan untuk memudahkan akses informasi publik
           </p>
         </div>
@@ -74,7 +74,7 @@ const ServicesSection = () => {
                 {service.title}
               </h3>
               
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
+              <p className="text-muted-foreground text-base md:text-sm 2xl:text-lg leading-relaxed mb-8">
                 {service.description}
               </p>
               

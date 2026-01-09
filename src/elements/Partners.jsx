@@ -7,7 +7,7 @@ import { partners } from "@/data";
 
 const Partners = () => {
   return (
-    <section className="py-16 md:py-16 overflow-hidden bg-muted/50">
+    <section className="py-16 md:py-12 overflow-hidden bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="inline-block text-black/60 font-semibold text-lg uppercase tracking-wider mb-3">

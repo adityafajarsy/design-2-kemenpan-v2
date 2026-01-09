@@ -27,7 +27,7 @@ const infoCards = [
 
 const PublicInfoSection = () => {
   return (
-    <section className="pt-20 pb-14 md:pt-28 md:pb-20 bg-surface">
+    <section className="pt-20 pb-14 md:pt-22 md:pb-20 bg-surface">
       <div className="section-container">
 
         {/* Header */}
@@ -36,11 +36,11 @@ const PublicInfoSection = () => {
             Informasi Publik
           </span>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+          <h2 className="text-3xl md:text-3xl 2xl:text-5xl font-bold tracking-tight">
             Daftar Informasi Publik
           </h2>
 
-          <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+          <p className="mt-4 max-w-3xl mx-auto text-lg md:text-lg 2xl:text-xl text-muted-foreground">
             Akses berbagai kategori informasi publik yang tersedia untuk masyarakat
           </p>
         </div>
@@ -51,7 +51,7 @@ const PublicInfoSection = () => {
             <Link
               key={card.title}
               to={card.href}
-              className="group bg-card rounded-2xl p-8 md:p-10 border border-border hover:border-primary/50 card-hover accent-border-left"
+              className="group bg-card rounded-2xl p-6 md:p-8 border border-border hover:border-primary/50 card-hover accent-border-left"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex flex-col h-full">
@@ -62,19 +62,19 @@ const PublicInfoSection = () => {
                 </div>
                 
                 {/* Title */}
-                <h3 className="text-2xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-lg 2xl:text-2xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
                   {card.title}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed grow mb-6">
+                <p className="text-muted-foreground text-base md:text-sm 2xl:text-lg leading-relaxed grow mb-6">
                   {card.description}
                 </p>
                 
                 {/* CTA */}
-                <div className="flex items-center gap-3 text-primary font-medium text-base">
+                <div className="flex items-center gap-3 text-primary font-medium text-sm 2xl:text-md">
                   <span>Lihat Detail</span>
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
 
               </div>

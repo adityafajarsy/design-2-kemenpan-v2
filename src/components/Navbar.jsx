@@ -1,53 +1,95 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { useWindowScroll } from 'react-use';
-import gsap from 'gsap';
-import ppidLogo from '/logos/Logo PanRB.png';
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  LucideHome,
+  HomeIcon,
+  Home,
+  HouseWifi,
+} from "lucide-react";
+import { useWindowScroll } from "react-use";
+import gsap from "gsap";
+import ppidLogo from "/logos/Logo PanRB.png";
 
 const navItems = [
-  
-  { label: 'Beranda', href: '/' },
-  { label: 'SOP', href: '/sop' },
-  { label: 'Regulasi', href: '/regulasi' },
   {
-    label: 'Profil',
+    label: "Profil",
     dropdown: [
-      { label: 'Tugas dan Fungsi', href: '/profil/tugas-dan-fungsi' },
-      { label: 'Nilai-nilai KemenPANRB', href: '/profil/nilai-nilai-kemenpanrb' },
-      { label: 'Kode Etik', href: '/profil/kode-etik' },
-      { label: 'Profil', href: '/profil/profil' },
-      { label: 'Visi & Misi', href: '/profil/visi-misi' },
-      { label: 'Struktur Organisasi PPID', href: '/profil/struktur-organisasi-ppid' },
-      { label: 'Kontak', href: '/profil/kontak' },
+      { label: "Tugas dan Fungsi", href: "/profil/tugas-dan-fungsi" },
+      {
+        label: "Nilai-nilai KemenPANRB",
+        href: "/profil/nilai-nilai-kemenpanrb",
+      },
+      { label: "Kode Etik", href: "/profil/kode-etik" },
+      { label: "Profil", href: "/profil/profil" },
+      { label: "Visi & Misi", href: "/profil/visi-misi" },
+      {
+        label: "Struktur Organisasi PPID",
+        href: "/profil/struktur-organisasi-ppid",
+      },
+      { label: "Kontak", href: "/profil/kontak" },
     ],
   },
   {
-    label: 'Informasi Publik',
+    label: "Informasi Publik",
     dropdown: [
-      { label: 'Informasi Berkala', href: '/informasi-publik/berkala' },
-      { label: 'Informasi Serta Merta', href: '/informasi-publik/serta-merta' },
-      { label: 'Informasi Setiap Saat', href: '/informasi-publik/setiap-saat' },
+      { label: "Regulasi", href: "/regulasi" },
+      { label: "Informasi Berkala", href: "/informasi-publik/berkala" },
+      { label: "Informasi Serta Merta", href: "/informasi-publik/serta-merta" },
+      { label: "Informasi Setiap Saat", href: "/informasi-publik/setiap-saat" },
+      { label: "SOP", href: "/sop" },
     ],
   },
   {
-    label: 'Layanan Informasi',
+    label: "Layanan Informasi",
     dropdown: [
-      { label: 'Layanan Pengaduan Masyarakat', href: '/layanan-informasi/layanan-pengaduan-masyarakat' },
-      { label: 'Laporan Ringkasan Layanan Akses Info Publik', href: '/layanan-informasi/laporan-ringkasan' },
-      { label: 'Laporan Tahunan Layanan Info Publik', href: '/layanan-informasi/laporan-tahunan' },
-      { label: 'Giat Menteri', href: '/layanan-informasi/giat-menteri' },
+      {
+        label: "Layanan Pengaduan Masyarakat",
+        href: "/layanan-informasi/layanan-pengaduan-masyarakat",
+      },
+      {
+        label: "Laporan Ringkasan Layanan Akses Info Publik",
+        href: "/layanan-informasi/laporan-ringkasan",
+      },
+      {
+        label: "Laporan Tahunan Layanan Info Publik",
+        href: "/layanan-informasi/laporan-tahunan",
+      },
+      { label: "Giat Menteri", href: "/layanan-informasi/giat-menteri" },
     ],
   },
   {
-    label: 'Standar Layanan',
+    label: "Standar Layanan",
     dropdown: [
-      { label: 'Prosedur Memperoleh Informasi', href: '/standar-layanan/prosedur-memperoleh-informasi' },
-      { label: 'Informasi Umum Layanan', href: '/standar-layanan/informasi-umum-layanan' },
-      { label: 'Maklumat Pelayanan', href: '/standar-layanan/maklumat-pelayanan' },
-      { label: 'Pencegahan Korupsi dan Pakta Integritas', href: '/standar-layanan/pencegahan-korupsi-pakta-integritas' },
-      { label: 'Survey Kepuasan', href: '/standar-layanan/survey-kepuasan' },
-      { label: 'Tata Cara', href: '/standar-layanan/tata-cara' },
+      {
+        label: "Prosedur Memperoleh Informasi",
+        href: "/standar-layanan/prosedur-memperoleh-informasi",
+      },
+      {
+        label: "Informasi Umum Layanan",
+        href: "/standar-layanan/informasi-umum-layanan",
+      },
+      {
+        label: "Maklumat Pelayanan",
+        href: "/standar-layanan/maklumat-pelayanan",
+      },
+      {
+        label: "Pencegahan Korupsi dan Pakta Integritas",
+        href: "/standar-layanan/pencegahan-korupsi-pakta-integritas",
+      },
+      { label: "Survey Kepuasan", href: "/standar-layanan/survey-kepuasan" },
+      { label: "Tata Cara", href: "/standar-layanan/tata-cara" },
+    ],
+  },
+  {
+    label: "PBJ",
+    dropdown: [
+      {
+        label: "Dokumen Pengadaan Barang dan Jasa",
+        href: "/pbj/dokumen-barang-dan-jasa",
+      },
     ],
   },
 ];
@@ -59,7 +101,7 @@ const Navbar = () => {
   const [isNavVisible, setIsNavVisible] = useState(true);
 
   const navContainerRef = useRef(null);
-    const { y: currentScrollY } = useWindowScroll();
+  const { y: currentScrollY } = useWindowScroll();
 
   useEffect(() => {
     if (currentScrollY < 0) return;
@@ -107,11 +149,16 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-1">
+            <Link to={'/'}>
+              <button className="relative text-foreground hover:bg-gray-100 after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 hover:text-primary cursor-pointer flex items-center lg:text-[15px] 2xl:text-xl gap-1 px-3 py-2 font-medium transition-colors rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="rgba(46,147,211,1)"><path d="M20 20C20 20.5523 19.5523 21 19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20ZM8 15V17H16V15H8Z"></path></svg>
+              </button>
+            </Link>
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
                 {item.dropdown ? (
                   <button
-                    className="nav-hover-btn flex items-center lg:text-[16px] 2xl:text-xl gap-1 px-3 py-2 font-medium transition-colors rounded-md"
+                    className="nav-hover-btn flex items-center lg:text-[15px] 2xl:text-xl gap-1 px-3 py-2 font-medium transition-colors rounded-md"
                     onMouseEnter={() => setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
@@ -120,7 +167,7 @@ const Navbar = () => {
                   </button>
                 ) : (
                   <Link
-                    to={item.href || '#'}
+                    to={item.href || "#"}
                     className="nav-hover-btn px-3 py-2 text-md 2xl:text-xl lg:text-[16px]font-medium transition-colors rounded-md"
                   >
                     {item.label}
@@ -130,11 +177,14 @@ const Navbar = () => {
                 {/* Dropdown */}
                 {item.dropdown && (
                   <div
-                    className={`absolute top-full left-0 min-w-60 bg-card border border-border rounded-lg shadow-lg py-2 transition-all duration-200 ${
-                      openDropdown === item.label
-                        ? 'opacity-100 visible translate-y-0'
-                        : 'opacity-0 invisible -translate-y-2'
-                    }`}
+                    className={`absolute top-full -left-18 min-w-60
+                      bg-card border border-border rounded-lg shadow-lg py-2
+                            transition-all duration-200
+                            ${
+                              openDropdown === item.label
+                                ? "opacity-100 visible translate-y-0"
+                                : "opacity-0 invisible -translate-y-2"
+                            }`}
                     onMouseEnter={() => setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
@@ -142,7 +192,7 @@ const Navbar = () => {
                       <Link
                         key={subItem.label}
                         to={subItem.href}
-                        className="block px-4 py-2 text-lg text-foreground hover:bg-muted hover:text-primary transition-colors"
+                        className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors"
                       >
                         {subItem.label}
                       </Link>
@@ -159,14 +209,18 @@ const Navbar = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? 'max-h-[90vh] pb-4' : 'max-h-0'
+            isMobileMenuOpen ? "max-h-[90vh] pb-4" : "max-h-0"
           }`}
         >
           <div className="space-y-1 text-md">
@@ -181,13 +235,13 @@ const Navbar = () => {
                       {item.label}
                       <ChevronDown
                         className={`h-4 w-4 transition-transform ${
-                          openDropdown === item.label ? 'rotate-180' : ''
+                          openDropdown === item.label ? "rotate-180" : ""
                         }`}
                       />
                     </button>
                     <div
                       className={`overflow-hidden transition-all duration-200 ${
-                        openDropdown === item.label ? 'max-h-96' : 'max-h-0'
+                        openDropdown === item.label ? "max-h-96" : "max-h-0"
                       }`}
                     >
                       <div className="pl-4 space-y-1 py-1">
@@ -206,7 +260,7 @@ const Navbar = () => {
                   </>
                 ) : (
                   <Link
-                    to={item.href || '#'}
+                    to={item.href || "#"}
                     className="block px-3 py-2 text-md font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
