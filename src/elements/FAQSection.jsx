@@ -60,11 +60,11 @@ const FAQSection = () => {
             FAQ
           </span>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold tracking-tight">
             Pertanyaan yang Sering Diajukan
           </h2>
 
-          <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+          <p className="mt-4 max-w-3xl mx-auto text-lg md:text-lg 2xl:text-xl text-muted-foreground">
             Temukan jawaban atas pertanyaan umum seputar layanan PPID
           </p>
         </div>
@@ -109,7 +109,7 @@ const FAQSection = () => {
                   <AccordionTrigger className="
                     text-left
                     font-semibold
-                    text-lg md:text-xl
+                    text-lg 2xl:text-xl
                     text-foreground
                     hover:text-primary
                     py-6
@@ -120,7 +120,7 @@ const FAQSection = () => {
 
                   <AccordionContent className="
                     text-muted-foreground
-                    text-base md:text-lg
+                    text-base md:text-sm 2xl:text-lg
                     pb-6
                     leading-relaxed
                   ">

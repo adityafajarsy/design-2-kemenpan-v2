@@ -35,10 +35,10 @@ const navItems = [
   {
     label: "Informasi Publik",
     dropdown: [
-      { label: "Regulasi", href: "/regulasi" },
       { label: "Informasi Berkala", href: "/informasi-publik/berkala" },
       { label: "Informasi Serta Merta", href: "/informasi-publik/serta-merta" },
       { label: "Informasi Setiap Saat", href: "/informasi-publik/setiap-saat" },
+      { label: "Regulasi", href: "/regulasi" },
       { label: "SOP", href: "/sop" },
     ],
   },
@@ -141,10 +141,10 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm navbar-btn border-b-2 border-primary"
     >
       <div className="section-container">
-        <div className="flex items-center justify-between h-16 md:h-24">
+        <div className="flex items-center justify-between h-16 md:h-20 2xl:h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={ppidLogo} alt="PPID Logo" className="h-10 md:h-14" />
+            <img src={ppidLogo} alt="PPID Logo" className="h-10 md:h-14 2xl:h-14" />
           </Link>
 
           {/* Desktop Menu */}

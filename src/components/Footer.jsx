@@ -46,12 +46,6 @@ const Footer = () => {
           <div>
             <div className="flex flex-row items-start gap-3 mb-3">
               <img src={ppidLogo} alt="PPID Logo" className="h-14 w-auto" />
-              <div>
-                <p className="font-bold text-xl leading-tight">PPID</p>
-                <p className="text-base text-primary-foreground/70">
-                  Kementerian PANRB
-                </p>
-              </div>
             </div>
 
             <p className="text-primary-foreground/70 text-base leading-relaxed mb-4">
@@ -156,16 +150,8 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/10">
         <div className="section-container py-4">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-base text-primary-foreground/60">
+          <div className="flex flex-col sm:items-center gap-3 text-base text-primary-foreground/60">
             <p>© 2026 Kementerian PANRB. Hak Cipta Dilindungi.</p>
-            <div className="flex gap-5">
-              <Link to="#" className="hover:text-primary transition-colors">
-                Kebijakan Privasi
-              </Link>
-              <Link to="#" className="hover:text-primary transition-colors">
-                Syarat & Ketentuan
-              </Link>
-            </div>
           </div>
         </div>
       </div>

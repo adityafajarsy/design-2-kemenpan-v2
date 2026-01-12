@@ -160,8 +160,8 @@ const PencegahanKorupsi = () => {
               <p className="text-sm text-muted-foreground">Ditjen@kemenpanrb.go.id</p>
             </div>
             <div className="p-4 bg-background rounded-lg">
-              <p className="font-medium text-foreground">WBS Online</p>
-              <p className="text-sm text-muted-foreground">wbs.kemenpanrb.go.id</p>
+              <p className="font-medium text-foreground">E-message</p>
+              <p className="text-sm text-muted-foreground">mapanrb.menpan.go.id/</p>
             </div>
             <div className="p-4 bg-background rounded-lg">
               <p className="font-medium text-foreground">Hotline</p>

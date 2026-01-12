@@ -47,7 +47,7 @@ const NewsSection = () => {
               Berita
             </span>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+            <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold tracking-tight">
               Berita Terbaru
             </h2>
 
