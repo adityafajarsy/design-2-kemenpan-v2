@@ -57,7 +57,7 @@ const HeroCarousel = () => {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section className="relative h-[60vh] md:h-[80vh] overflow-hidden -mt-16 md:mt-0">
+    <section className="relative h-[60vh] md:h-[90vh] overflow-hidden -mt-16 md:mt-0">
       {/* Slides */}
       <div className="relative h-full">
         {slides.map((slide, index) => (
@@ -86,7 +86,7 @@ const HeroCarousel = () => {
             <div className="relative h-full section-container flex items-center justify-center md:justify-start">
               <div className="max-w-2xl text-primary-foreground text-center md:text-left px-4">
                 <h1
-                  className={`text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 transition-all duration-700 ${
+                  className={`text-3xl lg:text-5xl 2xl:text-6xl font-bold mb-4 md:mb-6 transition-all duration-700 ${
                     index === currentSlide
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
@@ -97,7 +97,7 @@ const HeroCarousel = () => {
                 </h1>
 
                 <p
-                  className={`text-base md:text-xl mb-6 md:mb-8 text-primary-foreground/90 transition-all duration-700 ${
+                  className={`text-base lg:text-lg 2xl:text-xl mb-6 md:mb-8 text-primary-foreground/90 transition-all duration-700 ${
                     index === currentSlide
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
